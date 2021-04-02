@@ -175,7 +175,6 @@ td{
   }
 
   @media all and (max-width: 600px){
-
       table, tbody {
             border:solid 0px white;
           font-size: 13pt;

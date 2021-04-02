@@ -34,7 +34,7 @@
     font-weight:600;
 }
 
-.topbar button{
+button{
     border:none;
     background-color:white;
     font-size:10pt;
@@ -48,15 +48,25 @@
     cursor:pointer;
 }
 
-.topbar button:hover{
+button:hover{
     background-color:rgb(241, 241, 241);
 }
-.topbar button:active{
+button:active{
     background-color:rgb(211, 211, 211);
 }
 
+.toolbar{
+    display:flex;
+    width:auto;
+    position:fixed;
+    bottom:20px;
+    right: 20px;
+}
 
 @media all and (max-width: 600px){
+    .toolbar{
+        display:none;
+    }
     .topbar {
         margin-top:20px;
         margin-bottom:20px;
