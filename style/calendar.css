@@ -189,20 +189,28 @@ td{
       }
       .task p {
         font-size: 13pt;
-        padding-left:50px;
+        padding-left:33px;
         width:100%;
       }
       .task p:focus {
           background-color:rgba(255, 255, 255, 0);
       }
       .checkmark {
-          height:25px;
-          width:25px;
+          height:16px;
+          width:16px;
+          margin-top:3px;
       }
+        /* When the checkbox is checked, add a blue background */
+        .container input:checked ~ .checkmark {
+            background-color: #ffffff;
+        }
       .container .checkmark:after{
-          width:6px;
-          height:12px;
-          left:8.5px;
+          width:4px;
+          height:8px;
+          left:5px;
+          top: 1px;
+          border: solid rgb(66, 66, 66);
+          border-width: 0 3px 3px 0;
       }
       th {
           display:none;
