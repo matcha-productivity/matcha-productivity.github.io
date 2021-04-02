@@ -63,8 +63,11 @@
 
 }*/
 
-
-
+var mobile = false;
+if ($(window).width() < 600) {
+    mobile = true;
+ }
+ 
 function init(){
 
     $('.day').remove();
@@ -81,8 +84,10 @@ function init(){
             var dateid = formatDate(datecycle);
             var dayblock = $('<td>').appendTo(week).addClass('day').attr('id', dateid);
             var topbar = $('<div>').addClass('top').appendTo(dayblock);
-            var daynum = $('<p>').text(datecycle.getDate()).appendTo(topbar);
-
+            var weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+            if (!mobile){var daynum = $('<p>').text(datecycle.getDate()).appendTo(topbar);}
+            else {var daynum = $('<p>').text(datecycle.getDate() + ' ' + weekday[datecycle.getDay()] ).appendTo(topbar);}
+            
             if (dateid in data){ // check if date already in data
                 //console.log(dateid + ' already exists.')
             } else { // if not then make new "date"
