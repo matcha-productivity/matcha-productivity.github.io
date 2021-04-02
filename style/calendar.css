@@ -160,7 +160,6 @@ td{
   /* Show the checkmark when checked */
   .container input:checked ~ .checkmark:after {
     opacity: 1;
-    transition: all 0.2s ease-in-out;
   }
   /* Style the checkmark/indicator */
   .container .checkmark:after {
@@ -176,6 +175,7 @@ td{
   }
 
   @media all and (max-width: 600px){
+
       table, tbody {
             border:solid 0px white;
           font-size: 13pt;
@@ -189,6 +189,15 @@ td{
 
       .day .top .tools{
             opacity:1;
+            font-weight:bold;
+        }
+        .day .top .tools div:hover {
+            background-color:rgba(255, 255, 255, 0);
+        }
+        .day .top .tools div:active {
+            background-color:rgb(224, 224, 224);
+        }
+        .day .top .tools div ion-icon{
             font-weight:bold;
         }
         .day .top p{
