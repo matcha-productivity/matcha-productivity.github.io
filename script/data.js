@@ -1,4 +1,6 @@
 
+var data;
+
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     navigator.serviceWorker
@@ -76,6 +78,16 @@ if ("serviceWorker" in navigator) {
         $('#image').attr('src', profile.photoURL);
         $('.profile').css('opacity','1');
 
+
+        db.collection("users").doc(profile.uid)
+        .onSnapshot((doc) => {
+            var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
+            if (source == 'Server' && initsnap){
+                data = doc.data();
+                refresh();
+            }
+        });
+        
         db.collection("users").doc(firebase.auth().currentUser.uid).get().then(doc => {
             if (doc.exists) {
                 data = doc.data();
@@ -85,15 +97,6 @@ if ("serviceWorker" in navigator) {
                 init();
             }
         });
-
-        db.collection("users").doc(profile.uid)
-            .onSnapshot((doc) => {
-                var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
-                if (source == 'Server' && initsnap){
-                    data = doc.data();
-                    refresh();
-                }
-            });
 
 
             

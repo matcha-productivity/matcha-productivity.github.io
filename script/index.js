@@ -101,7 +101,6 @@ function init(){
         }
     }
 
-    
 
     $('#samplecon').hide();
     refresh();
@@ -116,6 +115,7 @@ function refresh(){
             createNote(i, task.val, task.id, task.complete);
         })
     });
+    console.log('initialized', data)
     
 }
 
@@ -130,6 +130,7 @@ function createNote(dayselected, val, idnum, complete){
     if (idnum != null){id = idnum} // already existing timestamp id
     else { // if this is a new task, create  a new timestamp id
         id = Date.now();
+        console.log(data);
         data[dayselected].push({
             id: id,
             val: "",
